@@ -2,11 +2,13 @@ package hello;
 
 import org.springframework.data.annotation.Id;
 
+import java.util.UUID;
+
 
 public class Customer {
 
     @Id
-    public String id;
+    public UUID id = UUID.randomUUID();
 
     public String firstName;
     public String lastName;
