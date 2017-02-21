@@ -15,8 +15,8 @@ public class GenerateUUIDListener extends AbstractMongoEventListener<Customer> {
     @Override
     public void onBeforeConvert(BeforeConvertEvent<Customer> event) {
         Customer customer = event.getSource();
-        if (customer.id == null) {
-            customer.id = UUID.randomUUID();
+        if (customer.isNew()) {
+            customer.setId(UUID.randomUUID());
         }
     }
 

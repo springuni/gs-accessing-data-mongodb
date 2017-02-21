@@ -1,11 +1,12 @@
 package hello;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.domain.Persistable;
 
 import java.util.UUID;
 
 
-public class Customer {
+public class Customer implements Persistable<UUID> {
 
     @Id
     public UUID id;
@@ -18,6 +19,20 @@ public class Customer {
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    @Override
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean isNew() {
+        return (getId() == null);
     }
 
     @Override
