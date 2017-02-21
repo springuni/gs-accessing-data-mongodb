@@ -8,7 +8,7 @@ import java.util.UUID;
 public class Customer {
 
     @Id
-    public UUID id = UUID.randomUUID();
+    public UUID id;
 
     public String firstName;
     public String lastName;
